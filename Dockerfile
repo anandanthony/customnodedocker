@@ -3,7 +3,6 @@ MAINTAINER Azure App Services Container Images <appsvc-images@microsoft.com>
 
 COPY startup /opt/startup
 COPY hostingstart.html /home/site/wwwroot/hostingstart.html
-COPY test.js /home/site/wwwroot/test.js
 COPY sshd_config /etc/ssh/
 
 RUN echo "ipv6" >> /etc/modules
@@ -37,5 +36,9 @@ ENV WEBSITE_INSTANCE_ID localInstance
 ENV PATH ${PATH}:/home/site/wwwroot
 
 WORKDIR /home/site/wwwroot
+
+COPY test.js /home/site/wwwroot/test.js
+
+CMD ["pm2", "test.js"]
 
 ENTRYPOINT ["/opt/startup/init_container.sh"]
