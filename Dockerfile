@@ -38,6 +38,4 @@ ENV PATH ${PATH}:/home/site/wwwroot
 
 WORKDIR /home/site/wwwroot
 
-CMD [ "pm2", "start", "test.js" ]
-
 ENTRYPOINT ["/opt/startup/init_container.sh"]
