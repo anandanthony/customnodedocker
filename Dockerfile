@@ -39,6 +39,4 @@ WORKDIR /home/site/wwwroot
 
 COPY test.js /home/site/wwwroot/test.js
 
-CMD ["pm2", "test.js"]
-
 ENTRYPOINT ["/opt/startup/init_container.sh"]
